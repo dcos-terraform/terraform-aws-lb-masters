@@ -8,7 +8,7 @@
  * -------
  *
  *```hcl
- * module "dcos-elb-masters" {
+ * module "dcos-lb-masters" {
  *   source  = "terraform-dcos/lb-masters/aws"
  *   version = "~> 0.1"
  *
