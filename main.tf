@@ -44,6 +44,8 @@ module "masters" {
   security_groups    = ["${var.security_groups}"]
   subnet_ids         = ["${var.subnet_ids}"]
   internal           = "${var.internal}"
+  disable            = "${var.disable}"
+  name_prefix        = "${var.name_prefix}"
   load_balancer_type = "application"
 
   tags = "${var.tags}"
