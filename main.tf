@@ -47,9 +47,10 @@ module "masters" {
   disable            = "${var.disable}"
   name_prefix        = "${var.name_prefix}"
   load_balancer_type = "application"
+
   additional_listener = [{
-    port = "${var.adminrouter_grpc_proxy_port}"
-    protocol = "https"
+    port            = "${var.adminrouter_grpc_proxy_port}"
+    protocol        = "https"
     certificate_arn = "${coalesce(var.https_acm_cert_arn, "selfsigned")}"
   }]
 
