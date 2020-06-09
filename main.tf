@@ -10,7 +10,7 @@
  *```hcl
  * module "dcos-lb-masters" {
  *   source  = "terraform-dcos/lb-masters/aws"
- *   version = "~> 0.2.0"
+ *   version = "~> 0.3.0"
  *
  *   cluster_name = "production"
  *
@@ -25,28 +25,32 @@
  *```
  */
 
-provider "aws" {}
+provider "aws" {
+  version = ">= 2.58"
+}
 
 module "masters" {
   source = "dcos-terraform/lb/aws"
+  version = "~> 0.3.0"
 
   providers = {
-    aws = "aws"
+    aws = aws
   }
 
-  cluster_name = "${var.cluster_name}"
+  cluster_name = var.cluster_name
 
-  https_acm_cert_arn = "${var.https_acm_cert_arn}"
+  https_acm_cert_arn = var.https_acm_cert_arn
   elb_name_format    = "%s"
 
-  instances          = ["${var.instances}"]
-  num_instances      = "${var.num_instances}"
-  security_groups    = ["${var.security_groups}"]
-  subnet_ids         = ["${var.subnet_ids}"]
-  internal           = "${var.internal}"
-  disable            = "${var.disable}"
-  name_prefix        = "${var.name_prefix}"
+  instances          = var.instances
+  num_instances      = var.num_instances
+  security_groups    = var.security_groups
+  subnet_ids         = var.subnet_ids
+  internal           = var.internal
+  disable            = var.disable
+  name_prefix        = var.name_prefix
   load_balancer_type = "application"
 
-  tags = "${var.tags}"
+  tags = var.tags
 }
+
