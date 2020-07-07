@@ -1,7 +1,7 @@
 /**
  * AWS LB Masters
  * ============
- * This module create an application load balancer to acces the masters externally.
+ * This module creates an application load balancer to access the masters externally.
  *
  *
  * EXAMPLE
