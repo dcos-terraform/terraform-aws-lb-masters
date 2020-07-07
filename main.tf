@@ -30,7 +30,7 @@ provider "aws" {
 }
 
 module "masters" {
-  source = "dcos-terraform/lb/aws"
+  source  = "dcos-terraform/lb/aws"
   version = "~> 0.3.0"
 
   providers = {
